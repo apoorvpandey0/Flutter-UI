@@ -1,0 +1,40 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+
+class ForstedScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/images/bg1.jpg',
+            fit: BoxFit.cover,
+          ),
+          FlutterLogo(),
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                child: Container(
+                  width: 300.0,
+                  height: 300.0,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      border: Border.all(color: Colors.white38),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Center(
+                    child: Text('Frosted Glass',
+                        style: TextStyle(color: Colors.white54, fontSize: 45)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
